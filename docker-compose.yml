@@ -1,15 +1,15 @@
 version: '3.5'
 services:
-  web:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
-    image: web
+    image: app
     networks:
       ia-net:
        ipv4_address: 173.20.0.3
-    container_name: web 
-    hostname: web.spring-media.com
+    container_name: app 
+    hostname: app.spring-media.com
     command :
       - "/bin/bash"
       - "-c"
