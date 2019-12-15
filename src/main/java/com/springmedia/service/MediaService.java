@@ -33,7 +33,7 @@ public class MediaService {
   }
   
   @Async
-  public CompletableFuture<List<Post>> findPost(int userid) throws InterruptedException {
+  public CompletableFuture<List<Post>> findPostByUser(int userid) throws InterruptedException {
     logger.info("Looking up " + userid);
     List<Post> posts = postService.getPostByUser(userid);
     return CompletableFuture.completedFuture(posts);

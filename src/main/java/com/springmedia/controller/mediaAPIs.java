@@ -23,7 +23,7 @@ public class mediaAPIs {
 	public User getUser(@PathVariable("userId") int userId) throws Throwable{
 		
 		CompletableFuture<User> userfuture = service.findUser(userId);
-		CompletableFuture<List<Post>> postfuture = service.findPost(userId);
+		CompletableFuture<List<Post>> postfuture = service.findPostByUser(userId);
 		User user = userfuture.get();
 		List<Post> posts = postfuture.get();
 		user.setPost(posts);
