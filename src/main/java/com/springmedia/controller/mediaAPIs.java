@@ -1,5 +1,6 @@
 package com.springmedia.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -26,6 +27,12 @@ public class mediaAPIs {
 		CompletableFuture<List<Post>> postfuture = service.findPostByUser(userId);
 		User user = userfuture.get();
 		List<Post> posts = postfuture.get();
+		if(user==null){
+			user = new User();
+		}
+		if(posts==null){
+	    	posts = new ArrayList<Post>();
+	    }
 		user.setPost(posts);
 		return user;
 		

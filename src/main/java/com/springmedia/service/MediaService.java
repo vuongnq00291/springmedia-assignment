@@ -1,5 +1,6 @@
 package com.springmedia.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -29,6 +30,9 @@ public class MediaService {
   @Async
   public CompletableFuture<User> findUser(int userid) throws InterruptedException {
 	User user =  userService.getUser(userid);
+	if(user==null){
+		user = new User();
+	}
     return CompletableFuture.completedFuture(user);
   }
   
@@ -36,6 +40,9 @@ public class MediaService {
   public CompletableFuture<List<Post>> findPostByUser(int userid) throws InterruptedException {
     logger.info("Looking up " + userid);
     List<Post> posts = postService.getPostByUser(userid);
+    if(posts==null){
+    	posts = new ArrayList<Post>();
+    }
     return CompletableFuture.completedFuture(posts);
   }
 
