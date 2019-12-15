@@ -5,6 +5,7 @@ public class APIConfig {
 	private String name;
 	private String url;
 	private String requestType;
+	private String failureReturnType;
 	public String getUrl() {
 		return url;
 	}
@@ -22,6 +23,12 @@ public class APIConfig {
 	}
 	public void setRequestType(String requestType) {
 		this.requestType = requestType;
+	}
+	public String getFailureReturnType() {
+		return failureReturnType;
+	}
+	public void setFailureReturnType(String failureReturnType) {
+		this.failureReturnType = failureReturnType;
 	}
 	
 	

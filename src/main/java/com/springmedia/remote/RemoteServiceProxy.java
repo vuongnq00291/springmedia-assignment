@@ -30,11 +30,14 @@ public class RemoteServiceProxy implements InvocationHandler{
 	  RemoteService rma = method.getDeclaringClass().getAnnotation(RemoteService.class);
 	  String key = rma.name()+"-"+method.getName().toLowerCase();
 	  APIConfig methodConfig = config.getApis().get(key);
-	  
-	  
-	  String url = MessageFormat.format(methodConfig.getUrl(), args) ;
-	  Object results = restTemplate.getForObject(url, method.getReturnType());
-	  return results;
+	  try{
+		  String url = MessageFormat.format(methodConfig.getUrl(), args) ;
+		  Object results = restTemplate.getForObject(url, method.getReturnType());
+		  return results;
+	  }catch(Exception e){
+		  return Class.forName(methodConfig.getFailureReturnType()).newInstance();
+	  }
+	 
   }
   
 
