@@ -40,7 +40,7 @@ public class MediaAPIsTest {
 	}
 
 	@Test
-	public void getAllModules() throws Exception {
+	public void getPostByUser() throws Exception {
 		
 		User user = new User();
 		user.setUsername("test1");
@@ -63,6 +63,30 @@ public class MediaAPIsTest {
 		ObjectMapper mapper = new ObjectMapper();
 		User res = mapper.readValue(result.getResponse().getContentAsString(),User.class);
 		assertEquals(res.getUsername(), "test1");
+		assertEquals(res.getPost().size(), 1);
+	}
+	
+	@Test
+	public void getPostByUserWithNullFromService() throws Exception {
+		
+		
+		Post post = new Post();
+		post.setId(1);
+		post.setTitle("post1");
+		post.setBody("something here");
+		List<Post> posts = new ArrayList<Post>();
+		posts.add(post);
+		
+		when(service.findPostByUser(1)).thenReturn(CompletableFuture.completedFuture(posts));
+		when(service.findUser(1)).thenReturn(CompletableFuture.completedFuture(null));
+		
+		MvcResult result = mockMvc.perform(get("/post-by-user/1"))
+	            .andExpect(status().isOk())
+				.andReturn();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		User res = mapper.readValue(result.getResponse().getContentAsString(),User.class);
+		assertEquals(res.getUsername(), null);
 		assertEquals(res.getPost().size(), 1);
 	}
 	
