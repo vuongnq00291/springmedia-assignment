@@ -6,6 +6,7 @@ START GUIDE
 API DETAIL
 - http://localhost:8090/post-by-user/1
 - merge posts to object User
+   
 
 
 
