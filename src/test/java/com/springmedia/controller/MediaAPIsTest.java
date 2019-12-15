@@ -25,7 +25,7 @@ import com.springmedia.pojo.Post;
 import com.springmedia.pojo.User;
 import com.springmedia.service.MediaService;
 @RunWith(SpringRunner.class)
-public class InsurenceControllerTest {
+public class MediaAPIsTest {
 	private MockMvc mockMvc;
 	@Mock
 	private MediaService service;
@@ -62,7 +62,7 @@ public class InsurenceControllerTest {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		User res = mapper.readValue(result.getResponse().getContentAsString(),User.class);
-		assertEquals(res.getName(), "test1");
+		assertEquals(res.getUsername(), "test1");
 		assertEquals(res.getPost().size(), 1);
 	}
 	
