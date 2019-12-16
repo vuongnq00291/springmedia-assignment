@@ -8,7 +8,7 @@ API DETAIL
 - merge posts to object User
    
 DESIGN
-https://github.com/vuongnq00291/springmedia-assignment/blob/master/design.png
+![alt text](https://github.com/vuongnq00291/springmedia-assignment/blob/master/design.png)
 
 
 
