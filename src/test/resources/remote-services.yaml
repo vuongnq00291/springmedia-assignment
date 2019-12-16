@@ -1,0 +1,11 @@
+apis:
+ post-getpostbyuser:
+   name : "getPostByUser"
+   requestType: "GET"
+   url: "http://jsonplaceholder.typicode.com/posts?userId={0}"
+   failureReturnType: java.util.ArrayList
+ user-getuser:
+   name : "getuser"
+   requestType: "GET"
+   url: "http://jsonplaceholder.typicode.com/users/{0}" 
+   failureReturnType: com.springmedia.pojo.User

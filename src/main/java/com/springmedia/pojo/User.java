@@ -3,7 +3,7 @@ package com.springmedia.pojo;
 import java.util.List;
 
 public class User {
-	 private float id;
+	 private int id;
 	 private String name;
 	 private String username;
 	 private String email;
@@ -16,7 +16,7 @@ public class User {
 
 	 // Getter Methods 
 
-	 public float getId() {
+	 public int getId() {
 	  return id;
 	 }
 
@@ -50,7 +50,7 @@ public class User {
 
 	 // Setter Methods 
 
-	 public void setId(float id) {
+	 public void setId(int id) {
 	  this.id = id;
 	 }
 

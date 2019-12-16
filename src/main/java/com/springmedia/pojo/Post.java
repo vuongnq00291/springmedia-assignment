@@ -1,16 +1,16 @@
 package com.springmedia.pojo;
 
 public class Post {
-	 private float userId;
-	 private float id;
+	 private int userId;
+	 private int id;
 	 private String title;
 	 private String body;
 
-	 public float getUserId() {
+	 public int getUserId() {
 	  return userId;
 	 }
 
-	 public float getId() {
+	 public int getId() {
 	  return id;
 	 }
 
@@ -22,11 +22,11 @@ public class Post {
 	  return body;
 	 }
 
-	 public void setUserId(float userId) {
+	 public void setUserId(int userId) {
 	  this.userId = userId;
 	 }
 
-	 public void setId(float id) {
+	 public void setId(int id) {
 	  this.id = id;
 	 }
 
